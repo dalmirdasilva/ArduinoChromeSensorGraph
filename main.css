@@ -1,0 +1,72 @@
+* {
+  font-family: ubuntu;
+}
+
+img {
+  width: 20px;
+}
+
+#settings-container {
+  margin: 8px 0px;
+}
+
+#canvas {
+  width: 100%;
+  height: 100%;
+  background-color: #bbb;
+}
+
+#graph-container {
+  width: 800px;
+  height: 300px;
+  border: 1px solid #aaa;
+}
+
+#io-container {
+
+}
+
+input, button, select {
+  padding: 4px;
+}
+
+#output {
+  border: 1px solid #aaa;
+  width: 800px;
+  height: 80px;
+  overflow: auto;
+  -webkit-user-select: text;
+}
+
+#input {
+  width: 600px;
+  margin-top: 10px;
+}
+
+#line-ending {
+  margin: 2px;
+  float: right;
+}
+
+#status {
+  float: right;
+}
+
+.color {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  margin: 2px 2px 0 0;
+}
+
+.color.a {
+  background-color: red;
+}
+
+.color.b {
+  background-color: blue;
+}
+
+.color.c {
+  background-color: green;
+}
