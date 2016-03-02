@@ -23,7 +23,7 @@ function initComponents() {
   connectButton = document.getElementById("connect");
   lineEndingSelect = document.getElementById("line-ending");
   monitor = new Monitor();
-  graph = new Graph();
+  graph = new Graph(800, 300);
 }
 
 function listPorts(ports) {
@@ -40,7 +40,8 @@ function connect(path, baudrate) {
   } else {
     port = new SerialPort(path, {bitrate: parseInt(baudrate), ctsFlowControl: true});
     port.addEventListener(SerialPort.EVENT.STATE_CHANGE, {notify: notify});
-    port.addEventListener(SerialPort.EVENT.DATA_AVAILABLE, monitor);
+    port.addEventListener(SerialPort.EVENT.STATE_CHANGE, {notify: this.graph.notifyPortStateChange.bind(graph)});
+    //port.addEventListener(SerialPort.EVENT.DATA_AVAILABLE, monitor);
     port.addEventListener(SerialPort.EVENT.DATA_AVAILABLE, graph);
     port.connect();
   }
@@ -105,7 +106,7 @@ window.addEventListener("load", function() {
         if (port && port.isConnected() && paths.indexOf(port.getPath()) < 0) {
           port.disconnect();
         }
-        if (!areArraysEqual(previousPaths, paths)) {
+        if (!Util.areArraysEqual(previousPaths, paths)) {
           listPorts(ports);
           previousPaths = paths;
         }

@@ -41,7 +41,7 @@ SerialPort.prototype.onReceive = function (info) {
 
 SerialPort.prototype.write = function (buffer, onDone) {
   if (buffer instanceof ArrayBuffer == false) {
-    buffer = bufferToArrayBuffer(buffer);
+    buffer = Util.bufferToArrayBuffer(buffer);
   }
   if (typeof onDone !== 'function') {
     onDone = function() {
@@ -51,7 +51,7 @@ SerialPort.prototype.write = function (buffer, onDone) {
 };
 
 SerialPort.prototype.writeString = function (string, onDone) {
-  this.write(stringToArrayBuffer(string), onDone);
+  this.write(Util.stringToArrayBuffer(string), onDone);
 };
 
 SerialPort.prototype.disconnect = function () {
@@ -75,6 +75,10 @@ SerialPort.prototype.isConnected = function() {
 
 SerialPort.prototype.stateMessage = function() {
   return SerialPort.STATE_MESSAGE[this.getState()];
+};
+
+SerialPort.prototype.getPath = function() {
+  return this.path;
 };
 
 SerialPort.STATE = {

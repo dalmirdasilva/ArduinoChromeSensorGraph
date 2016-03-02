@@ -1,25 +1,35 @@
 function Graph(width, height) {
   this.width = width;
   this.height = height;
-  this.initComponents();
-  this.initCanvasContext();
 }
 
 Graph.prototype.initComponents = function() {
   this.canvas = document.getElementById("canvas");
-};
-
-Graph.prototype.initCanvasContext = function() {
   this.canvas.width = this.width;
   this.canvas.height = this.height;
-  this.context = this.canvas.getContext("2d");
-  this.context.lineWidth = 1;
+  this.plotter = new Plotter(this.canvas);
+  this.parser = new Parser();
+  this.parser.addEventListener(Parser.EVENT.FRAME_PARSED, {notify: this.notifyFrameParsed.bind(this)});
 };
 
 Graph.prototype.notify = function(buffer) {
-  console.log(buffer);
+  this.parser.parseBuffer(buffer);
 };
 
-Graph.prototype.parseFrame = function(buffer) {
+Graph.prototype.notifyPortStateChange = function(newState) {
+  if (newState == SerialPort.STATE.CONNECTED) {
+    this.initComponents();
+  }
+};
 
+Graph.prototype.notifyFrameParsed = function(frame) {
+  this.plotFrame(frame);
+};
+
+Graph.prototype.plotFrame = function (frame) {
+  this.plotter.plotX(frame.getTime(), frame.getX());
+  this.plotter.plotY(frame.getTime(), frame.getY());
+  this.plotter.plotZ(frame.getTime(), frame.getZ());
+  this.plotter.plotFlags(frame.getFlags());
+  this.plotter.plotTime(frame.getTime());
 };
