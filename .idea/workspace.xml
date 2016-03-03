@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6076855f-3bce-4027-9da9-e300a28e7769" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/background.js" afterPath="$PROJECT_DIR$/background.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.css" afterPath="$PROJECT_DIR$/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.js" afterPath="$PROJECT_DIR$/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/parser.js" afterPath="$PROJECT_DIR$/parser.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/util.js" afterPath="$PROJECT_DIR$/util.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extension.zip" afterPath="$PROJECT_DIR$/extension.zip" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/screenshot.png" afterPath="$PROJECT_DIR$/assets/screenshot.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/tile.png" afterPath="$PROJECT_DIR$/assets/tile.png" />
     </list>
     <ignored path="ArduinoChromeSensorGraph.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -510,12 +506,12 @@
       <created>1456856744423</created>
       <option name="number" value="Default" />
       <updated>1456856744423</updated>
-      <workItem from="1456856746171" duration="24500000" />
+      <workItem from="1456856746171" duration="25698000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24500000" />
+    <option name="totallyTimeSpent" value="25698000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="27" width="1928" height="1150" extended-state="6" />
