@@ -11,6 +11,9 @@ var monitor;
 var graph;
 var previousPaths;
 var lineEndingSelect;
+var helperCloseIcon;
+var helperContainer;
+var helpLink;
 
 function initComponents() {
   autoScrollInput = document.getElementById("auto-scroll");
@@ -22,6 +25,9 @@ function initComponents() {
   baudrateSelect = document.getElementById("baudrate");
   connectButton = document.getElementById("connect");
   lineEndingSelect = document.getElementById("line-ending");
+  helperContainer = document.getElementById("helper-container");
+  helperCloseIcon = document.getElementById("helper-container-close");
+  helpLink = document.getElementById("help");
   monitor = new Monitor();
   graph = new Graph(800, 300);
 }
@@ -85,6 +91,12 @@ function attachEvents() {
     if (monitor) {
       monitor.invertAutoScroll();
     }
+  });
+  helperCloseIcon.addEventListener("click", function () {
+    helperContainer.style.visibility = 'hidden';
+  });
+  helpLink.addEventListener("click", function () {
+    helperContainer.style.visibility = 'visible';
   });
 }
 

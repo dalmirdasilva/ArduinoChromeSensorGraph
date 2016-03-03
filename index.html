@@ -54,14 +54,12 @@
         <span class="color a">&nbsp;</span>x
         <span class="color b">&nbsp;</span>y
         <span class="color c">&nbsp;</span>z
+        <div id="help">Help</div>
       </div>
       <div id="io-container">
         <div>
           <input id="input" type="text" />
           <button id="send">Send</button>
-        </div>
-        <div>
-          <pre id="output"></pre>
         </div>
         <div>
           <input type="checkbox" checked="checked" id="auto-scroll"></pre> <label for="auto-scroll">Auto Scroll</label>
@@ -73,6 +71,87 @@
           </select>
         </div>
       </div>
+    </div>
+  </div>
+  <div id="helper-container">
+    <div id="helper-container-close"></div>
+    <h3>Data frame</h3>
+    <div class="help-description">A frame is 13 bytes long array with the following structure:</div>
+    <table id="help-table" border="0" cellpadding="0" cellspacing="0" width="100%">
+      <thead>
+        <td>Data</td>
+        <td>Size</td>
+        <td>Endianness</td>
+        <td>Default</td>
+        <td>Description</td>
+      </thead>
+      <tbody>
+      <tr>
+        <td>sof</td>
+        <td>unsigned 8 bit (1 byte)</td>
+        <td>-</td>
+        <td>0xaa</td>
+        <td>Start of frame mark</td>
+      </tr>
+      <tr>
+        <td>x</td>
+        <td>signed 16 bit (2 bytes)</td>
+        <td>big endian</td>
+        <td>-</td>
+        <td>The X information</td>
+      </tr>
+      <tr>
+        <td>y</td>
+        <td>signed 16 bit (2 bytes)</td>
+        <td>big endian</td>
+        <td>-</td>
+        <td>The Y information</td>
+      </tr>
+      <tr>
+        <td>z</td>
+        <td>signed 16 bit (2 bytes)</td>
+        <td>big endian</td>
+        <td>-</td>
+        <td>The Z information</td>
+      </tr>
+      <tr>
+        <td>flags</td>
+        <td>unsigned 8 bit (1 byte)</td>
+        <td>-</td>
+        <td>-</td>
+        <td>Flags</td>
+      </tr>
+      <tr>
+        <td>time</td>
+        <td>unsigned 32 bit (4 bytes)</td>
+        <td>little endian</td>
+        <td>-</td>
+        <td>Time in millis</td>
+      </tr>
+      <tr>
+        <td>eof</td>
+        <td>unsigned 8 bit (1 byte)</td>
+        <td>-</td>
+        <td>0xbb</td>
+        <td>End of frame mark</td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="help-description">Example of a frame</div>
+    <div>
+      <snap class="example-sof">0xaa</snap>
+      <snap class="example-x">0x00</snap>
+      <snap class="example-x">0x01</snap>
+      <snap class="example-y">0x02</snap>
+      <snap class="example-y">0x03</snap>
+      <snap class="example-z">0x04</snap>
+      <snap class="example-z">0x05</snap>
+      <snap class="example-flags">0x77</snap>
+      <snap class="example-time">0x00</snap>
+      <snap class="example-time">0x04</snap>
+      <snap class="example-time">0x44</snap>
+      <snap class="example-time">0x55</snap>
+      <snap class="example-eof">0xbb</snap>
     </div>
   </div>
 </body>

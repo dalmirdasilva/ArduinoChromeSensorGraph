@@ -4,6 +4,7 @@ function Parser() {
   this.pos = 0;
   this.buffer = null;
   this.bufferPointer = 0;
+  this.frame = new Frame();
 }
 
 Parser.prototype.parseBuffer = function (buffer) {
@@ -73,18 +74,16 @@ Parser.prototype.parse = function (byte) {
 };
 
 Parser.prototype.notifyFrameWasParsed = function() {
-  var frame = this.makeFrame();
-  this.notifier.notifyEvent(Parser.EVENT.FRAME_PARSED, frame);
+  this.makeFrame();
+  this.notifier.notifyEvent(Parser.EVENT.FRAME_PARSED, this.frame);
 };
 
 Parser.prototype.makeFrame = function () {
-  var frame = new Frame();
-  frame.setX(Util.readInt16(this.buffer, Parser.POS.X_POS));
-  frame.setY(Util.readInt16(this.buffer, Parser.POS.Y_POS));
-  frame.setZ(Util.readInt16(this.buffer, Parser.POS.Z_POS));
-  frame.setFlags(this.buffer[Parser.POS.FLAGS_POS]);
-  frame.setTime(Util.readUint32(this.buffer, Parser.POS.TIME_POS));
-  return frame;
+  this.frame.setX(Util.readInt16(this.buffer, Parser.POS.X_POS));
+  this.frame.setY(Util.readInt16(this.buffer, Parser.POS.Y_POS));
+  this.frame.setZ(Util.readInt16(this.buffer, Parser.POS.Z_POS));
+  this.frame.setFlags(this.buffer[Parser.POS.FLAGS_POS]);
+  this.frame.setTime(Util.readUint32(this.buffer, Parser.POS.TIME_POS));
 };
 
 Parser.prototype.addEventListener = function (event, listener) {

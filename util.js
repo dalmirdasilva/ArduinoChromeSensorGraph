@@ -41,5 +41,6 @@ Util.normalize = function (graphHeight, value) {
 };
 
 Util.normalizeTime = function (graphWidth, value) {
+  //console.log(graphWidth, value);
   return (value / 20) % graphWidth;
 };

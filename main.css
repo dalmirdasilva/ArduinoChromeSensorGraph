@@ -70,3 +70,81 @@ input, button, select {
 .color.c {
   background-color: green;
 }
+
+#help {
+  float: right;
+  text-decoration: underline;
+  color: dodgerblue;
+  padding: 4px 2px;
+  cursor: pointer;
+}
+
+#helper-container {
+  width: 500px;
+  height: 300px;
+  border: 1px solid #aaaaaa;
+  position: absolute;
+  left: 150px;
+  top: 100px;
+  background-color: white;
+  box-shadow: 0px 0px 10px grey;
+  visibility: hidden;
+  padding: 8px;
+}
+
+#helper-container-close {
+  background: #ffffff url("assets/close.png") no-repeat right top;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  cursor: pointer;
+}
+
+.help-description {
+  margin: 2px 0 10px 0;
+  font-weight: bold;
+
+}
+
+td {
+  padding: 4px;
+}
+
+#help-table thead tr td {
+  border-bottom: 1px solid #666666;
+  background: #eeeeee;
+}
+
+#help-table tbody tr td {
+  border-top: 1px solid #dddddd;
+}
+
+.example-sof {
+  color: #efc5ad;
+}
+
+.example-x {
+  color: #ff0000;
+}
+
+.example-y {
+  color: #06ab00;
+}
+
+.example-z {
+  color: #0000ff;
+}
+
+.example-flags {
+  color: #d6a9ff;
+}
+
+.example-time {
+  color: #eb06ff;
+}
+
+.example-eof {
+  color: #ff7018;
+}
