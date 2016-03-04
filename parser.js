@@ -31,19 +31,19 @@ Parser.prototype.parse = function (byte) {
       this.pos = 0;
       break;
     case Parser.STATE.SOF_PARSED:
-      if (this.pos++ >= Parser.CONST.X_SIZE) {
+      if (++this.pos >= Parser.CONST.X_SIZE) {
         this.state = Parser.STATE.X_PARSED;
         this.pos = 0;
       }
       break;
     case Parser.STATE.X_PARSED:
-      if (this.pos++ >= Parser.CONST.Y_SIZE) {
+      if (++this.pos >= Parser.CONST.Y_SIZE) {
         this.state = Parser.STATE.Y_PARSED;
         this.pos = 0;
       }
       break;
     case Parser.STATE.Y_PARSED:
-      if (this.pos++ >= Parser.CONST.Z_SIZE) {
+      if (++this.pos >= Parser.CONST.Z_SIZE) {
         this.state = Parser.STATE.Z_PARSED;
         this.pos = 0;
       }
@@ -53,7 +53,7 @@ Parser.prototype.parse = function (byte) {
       this.pos = 0;
       break;
     case Parser.STATE.FLAGS_PARSED:
-      if (this.pos++ >= Parser.CONST.TIME_SIZE) {
+      if (++this.pos >= Parser.CONST.TIME_SIZE) {
         this.state = Parser.STATE.TIME_PARSED;
         this.pos = 0;
       }
