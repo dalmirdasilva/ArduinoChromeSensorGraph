@@ -73,7 +73,7 @@ Parser.prototype.parse = function (byte) {
   return parsed;
 };
 
-Parser.prototype.notifyFrameWasParsed = function() {
+Parser.prototype.notifyFrameWasParsed = function () {
   this.makeFrame();
   this.notifier.notifyEvent(Parser.EVENT.FRAME_PARSED, this.frame);
 };

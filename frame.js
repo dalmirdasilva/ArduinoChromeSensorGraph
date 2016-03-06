@@ -22,7 +22,7 @@ Frame.prototype.setFlags = function (flags) {
   this.flags = flags;
 };
 
-Frame.prototype.setTime= function (time) {
+Frame.prototype.setTime = function (time) {
   this.time = time;
 };
 
@@ -42,7 +42,7 @@ Frame.prototype.getFlags = function () {
   return this.flags;
 };
 
-Frame.prototype.getTime= function () {
+Frame.prototype.getTime = function () {
   return this.time;
 };
 

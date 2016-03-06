@@ -13,13 +13,12 @@ img {
 #canvas {
   width: 100%;
   height: 100%;
-  background-color: #bbb;
+  background-color: #eee;
 }
 
 #graph-container {
   width: 800px;
   height: 300px;
-  border: 1px solid #aaa;
 }
 
 #io-container {
@@ -30,22 +29,13 @@ input, button, select {
   padding: 4px;
 }
 
-#output {
-  border: 1px solid #aaa;
-  width: 800px;
-  height: 80px;
-  overflow: auto;
-  -webkit-user-select: text;
-}
-
 #input {
-  width: 600px;
+  width: 570px;
   margin-top: 10px;
 }
 
 #line-ending {
   margin: 2px;
-  float: right;
 }
 
 #status {
@@ -59,16 +49,20 @@ input, button, select {
   margin: 2px 2px 0 0;
 }
 
-.color.a {
+.color.x {
   background-color: red;
 }
 
-.color.b {
+.color.y {
   background-color: blue;
 }
 
-.color.c {
+.color.z {
   background-color: green;
+}
+
+.color.flags-one {
+  background-color: #fb05ff;
 }
 
 #help {

@@ -33,11 +33,11 @@ Util.readUint32 = function (buffer, pos) {
 };
 
 Util.normalize = function (graphHeight, value) {
-  return (graphHeight - ((value + 32768) * (graphHeight/65535)));
+  return (graphHeight - ((value + 32768) * (graphHeight / 65535)));
 };
 
 Util.normalize = function (graphHeight, value) {
-  return (graphHeight - ((value + 32768) * (graphHeight/65535)));
+  return (graphHeight - ((value + 32768) * (graphHeight / 65535)));
 };
 
 Util.normalizeTime = function (graphWidth, value) {
