@@ -13,6 +13,9 @@ var helperCloseIcon;
 var helperContainer;
 var helpLink;
 
+var GRAPH_WIDTH = 800;
+var GRAPH_HEIGHT = 300;
+
 function initComponents() {
   statusText = document.getElementById("status");
   sendButton = document.getElementById("send");
@@ -25,7 +28,7 @@ function initComponents() {
   helperContainer = document.getElementById("helper-container");
   helperCloseIcon = document.getElementById("helper-container-close");
   helpLink = document.getElementById("help");
-  graph = new Graph(800, 300);
+  graph = new Graph(GRAPH_WIDTH, GRAPH_HEIGHT);
 }
 
 function listPorts(ports) {

@@ -2,6 +2,9 @@ function Plotter(canvas) {
   this.canvas = canvas;
   this.ctx = canvas.getContext("2d");
   this.colors = {
+    a: '#00ffff',
+    b: '#ff00ff',
+    c: '#ffff00',
     x: '#ff0000',
     y: '#00ff00',
     z: '#0000ff',
@@ -19,6 +22,18 @@ function Plotter(canvas) {
 
 Plotter.prototype.resetPreviousPositions = function () {
   this.previous = {
+    a: {
+      value: 0,
+      time: 0
+    },
+    b: {
+      value: 0,
+      time: 0
+    },
+    c: {
+      value: 0,
+      time: 0
+    },
     x: {
       value: 0,
       time: 0
@@ -33,6 +48,36 @@ Plotter.prototype.resetPreviousPositions = function () {
     },
     flags: 0,
     time: 0
+  };
+};
+
+Plotter.prototype.plotA = function (time, a) {
+  a = Util.normalize(this.canvas.height, a);
+  time = Util.normalizeTime(this.canvas.width, time);
+  this.plotContinuousSample(this.previous.a.time, time, this.previous.a.value, a, this.colors.a);
+  this.previous.a = {
+    time: time,
+    value: a
+  };
+};
+
+Plotter.prototype.plotB = function (time, b) {
+  b = Util.normalize(this.canvas.height, b);
+  time = Util.normalizeTime(this.canvas.width, time);
+  this.plotContinuousSample(this.previous.b.time, time, this.previous.b.value, b, this.colors.b);
+  this.previous.b = {
+    time: time,
+    value: b
+  };
+};
+
+Plotter.prototype.plotC = function (time, c) {
+  c = Util.normalize(this.canvas.height, c);
+  time = Util.normalizeTime(this.canvas.width, time);
+  this.plotContinuousSample(this.previous.c.time, time, this.previous.c.value, c, this.colors.c);
+  this.previous.c = {
+    time: time,
+    value: c
   };
 };
 
@@ -85,7 +130,7 @@ Plotter.prototype.clearCanvas = function () {
     this.ctx.strokeStyle = '#ffffff';
     this.ctx.stroke();
   }
-  var part = this.canvas.height / 8;
+  var part = this.canvas.height / 16;
   for (var i = part; i < this.canvas.height; i += part) {
     this.ctx.beginPath();
     this.ctx.moveTo(0, i);
